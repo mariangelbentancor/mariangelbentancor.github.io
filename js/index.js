@@ -1,7 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const login = document.getElementById('ingresar')
+    const form = document.getElementById('login');
 
-    login.addEventListener('click', () =>  {
-        window.location.href = 'home.html'
+    form.addEventListener('submit', (evento) => {
+        evento.preventDefault();
+        const mailInput = form.querySelector('mail');
+        const passwordInput = form.querySelector('password');
+
+        if (mailInput.value == '' && passwordInput.value == '') {
+            alert('Usuario y/o contraseña incorrecta!');
+        }
+        else {
+            login(mailInput.value, passwordInput.value);
+        };
+
     })
-})
