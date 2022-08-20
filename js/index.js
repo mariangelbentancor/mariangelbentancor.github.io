@@ -1,16 +1,18 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('login');
+const button = document.getElementById('ingresar');
+const mail = document.getElementById('mail');
+const password = document.getElementById('password');
 
-    form.addEventListener('submit', (evento) => {
-        evento.preventDefault();
-        const mailInput = form.querySelector('mail');
-        const passwordInput = form.querySelector('password');
+button.addEventListener('click', (evento) => {
+    evento.preventDefault();
 
-        if (mailInput.value == '' && passwordInput.value == '') {
-            alert('Usuario y/o contraseña incorrecta!');
+    const data = {
+        mail: mail.value,
+        password: password.value,
+    }
+        if(data.mail !== '' && data.password !== ''){
+        window.location.href = 'home.html';
+        }else {
+        alert('Correo y/o contraseña vacío, favor de completar')
         }
-        else {
-            login(mailInput.value, passwordInput.value);
-        };
 
-    })
+});
