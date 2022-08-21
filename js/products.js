@@ -31,6 +31,6 @@ document.addEventListener('DOMContentLoaded', async function(){
 
     listadoAutos.data.products.forEach(function (auto){
         listado.innerHTML += getHTML(auto)
-    })
+    }) 
 
 });
