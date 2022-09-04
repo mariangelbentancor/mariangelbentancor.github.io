@@ -1,3 +1,7 @@
+const button = document.getElementById('ingresar');
+const mail = document.getElementById('mail');
+const password = document.getElementById('password');
+
 button.addEventListener('click', (evento) => {
     evento.preventDefault();
 
