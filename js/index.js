@@ -1,7 +1,3 @@
-const button = document.getElementById('ingresar');
-const mail = document.getElementById('mail');
-const password = document.getElementById('password');
-
 button.addEventListener('click', (evento) => {
     evento.preventDefault();
 
@@ -14,5 +10,6 @@ button.addEventListener('click', (evento) => {
         }else {
         alert('Correo y/o contraseña vacío, favor de completar')
         }
-
+        
+        localStorage.setItem('mail', data.mail)
 });

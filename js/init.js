@@ -39,3 +39,10 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+const usuarioNav = document.getElementById('usuario');
+var getClaveUsuario = localStorage.getItem('mail');
+
+if (getClaveUsuario !== null){
+usuarioNav.innerHTML += `<a class="nav-item" href"">${getClaveUsuario}</a>`;
+}
