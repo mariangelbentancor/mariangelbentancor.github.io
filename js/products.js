@@ -12,6 +12,11 @@ document.addEventListener('DOMContentLoaded', async function(){
 
 });
 
+function setProdID(id) {
+    localStorage.setItem("id", id);
+    window.location = "product-info.html"
+}
+
 const ORDER_ASC_BY_COST = "AZ COST";
 const ORDER_DESC_BY_COST = "ZA COST";
 const ORDER_BY_PROD_SOLDCOUNT = "Cant vendida";
@@ -58,7 +63,7 @@ function showProductsList(array){
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){
 
             htmlContentToAppend += `
-            <div class="row shadow p-0 rounded overflow-hiden mb-3" data-id="${product.id}">
+            <div class="row shadow p-0 rounded overflow-hiden mb-3" onclick="setProdID(${product.id})">
             <div class="col-3 p-0">
                 <img class="img-fluid"src="${product.image}" alt="">
             </div>
