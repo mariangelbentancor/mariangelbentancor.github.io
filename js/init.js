@@ -46,3 +46,20 @@ var getClaveUsuario = localStorage.getItem('mail');
 if (getClaveUsuario !== null){
 usuarioNav.innerHTML += `<a class="nav-item" href"">${getClaveUsuario}</a>`;
 }
+
+const dropdownCarrito= document.getElementById('carrito');
+const dropdownPerfil= document.getElementById('perfil');
+const dropdownCerrar = document.getElementById('cerrar');
+
+dropdownCarrito.addEventListener ('click',() => {
+  window.location = "cart.html"
+})
+
+dropdownPerfil.addEventListener ('click',() => {
+  window.location = "my-profile.html"
+})
+
+dropdownCerrar.addEventListener ('click',() => {
+  window.location = "index.html"
+  localStorage.removeItem("mail");
+})
