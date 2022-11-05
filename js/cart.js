@@ -6,9 +6,8 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   listadoInfoCart.data.articles.forEach(function (cart) {
     listado.innerHTML += getHTML(cart)
+    subTotal (cart.unitCost)
   })
-
-  document.getElementById("subT").innerHTML = "15200"
 
 });
 
@@ -31,6 +30,7 @@ const total = document.getElementById('total');
 const premium = document.getElementById('premium');
 const express = document.getElementById('express');
 const standard = document.getElementById('standard');
+let porcentaje = "5"
 
 
 function subTotal(precio) {
@@ -117,31 +117,46 @@ radioTransf.addEventListener ('click', function (){
   }
 })
 
-
 const calle = document.getElementById('calle');
 const numero = document.getElementById('numero');
 const esquina= document.getElementById('esquina');
 
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-  'use strict'
+var forms = document.querySelectorAll('.needs-validation')
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  var forms = document.querySelectorAll('.needs-validation')
+// Loop over them and prevent submission
+Array.prototype.slice.call(forms)
+.forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+    if (!form.checkValidity()) {
+        checkModal()
+        event.preventDefault()
+        event.stopPropagation()
+    } else {
+        document.getElementById('exito').style.visibility = "visible";
+        event.preventDefault()
+        event.stopPropagation()
+        mensajeError.innerHTML = ""
+      }
+    form.classList.add('was-validated')
+    }, false)
+})
 
-  // Loop over them and prevent submission
-  Array.prototype.slice.call(forms)
-    .forEach(function (form) {
-      form.addEventListener('submit', function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
-        else {
-          swal("Registrado con éxito");
-        }
+const mensajeError = document.getElementById("mensajeError");
 
-        form.classList.add('was-validated')
-      }, false)
-    })
-})()
+function errorTerminos() {
+  mensajeError.innerHTML = `
+  <span class="text-danger">Debe seleccionar una forma de pago.</span>
+  `
+}
+
+function checkModal() {
+  if (radioTarjCred.checked) {
+    if (tarjeta.value == '' && codigo.value == '' && venc.value == '') {
+      errorTerminos()
+    }
+  } else {
+    if (transf.value == '') {
+      errorTerminos()
+    }
+  }
+}
