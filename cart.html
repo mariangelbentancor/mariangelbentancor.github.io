@@ -44,7 +44,8 @@
     </div>
   </nav>
   <main>
-    <div class="container">
+    <form class="needs-validation" novalidate>
+      <div class="container">
       <div class="row">
         <div>
           <h3>Carrito de compras</h3>
@@ -69,31 +70,30 @@
         </div>
         <br>
         <h5>Tipo de envío</h5>
-        <div id="tipoEnvio" class="row mb-3"></div>
-        <label for="premium"><input type="radio" value="15" id="premium" name="tipoEnvio" checked> Premium 2 a 5 días
-          (15%)
-        </label>
-        <label for="express"><input type="radio" value="7" id="express" name="tipoEnvio" checked> Express 5 a 8 días
-          (7%)
-        </label>
-        <label for="standard"><input type="radio" value="5" id="standard" name="tipoEnvio" checked> Standard 8 a 12 días
-          (5%)
-        </label>
-      </div>
+          <div id="tipoEnvio" class="row mb-3">
+            <label for="premium"><input type="radio" value="15" id="premium" name="tipoEnvio"> Premium 2 a 5 días
+              (15%)
+            </label>
+            <label for="express"><input type="radio" value="7" id="express" name="tipoEnvio"> Express 5 a 8 días
+              (7%)
+            </label>
+            <label for="standard"><input type="radio" value="5" id="standard" name="tipoEnvio" checked> Standard 8 a 12 días
+              (5%)
+            </label>
+          </div>
       <hr>
       <h5>Dirección de envío</h5>
-      <form class="was-validated">
         <div class="row g-3">
           <div class="col-8">
             <label for="calle" class="form-label">Calle</label>
-            <input type="text" class="form-control was-validated" id="calle" required>
+            <input type="text" class="form-control" id="calle" required>
             <div class="invalid-feedback">
               Ingresa una calle.
             </div>
           </div>
           <div class="col-4">
             <label for="numero" class="form-label">Número</label>
-            <input type="text" class="form-control was-validated" id="numero" required>
+            <input type="number" class="form-control" id="numero" required>
             <div class="invalid-feedback">
               Ingresa un número.
             </div>
@@ -102,13 +102,13 @@
         <div class="row g-3">
           <div class="col-8">
             <label for="esquina" class="form-label">Esquina</label>
-            <input type="text" class="form-control was-validated" id="esquina" required>
+            <input type="text" class="form-control" id="esquina" required>
             <div class="invalid-feedback">
               Ingresa una esquina.
             </div>
           </div>
         </div>
-      </form>
+     
       <hr>
       <h5>Costos</h5>
       <div class="row g-3">
@@ -144,6 +144,7 @@
                   <button type="button" class="btn btn-link ps-0" data-bs-toggle="modal"
                     data-bs-target="#modalSeleccionar">Seleccionar
                   </button>
+                  <span id="mensajeError"></span>
                 </div>
               </li>
             </ul>
@@ -152,8 +153,9 @@
       </div>
       <br>
       <div class="d-grid gap-2">
-        <button class="btn btn-primary" type="button" id="finalizar">Finalizar compra</button>
+        <button class="btn btn-primary" type="submit" id="finalizar">Finalizar compra</button>
       </div>
+    
       <div class="modal fade" id="modalSeleccionar" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -170,26 +172,26 @@
               <div class="row g-3">
                 <div class="col-6">
                   <label for="" class="form-label">Número de tarjeta</label>
-                  <input type="text" class="form-control" id="inputTarjeta">
+                  <input type="number" class="form-control" id="inputTarjeta" required>
                 </div>
                 <div class="col-4">
                   <label for="" class="form-label">Código de Seg.</label>
-                  <input type="text" class="form-control" id="inputCodigo">
+                  <input type="number" min= "1" max= "999" class="form-control" id="inputCodigo" required>
                 </div>
                 <div class="col-6">
                   <label for="" class="form-label">Vencimiento (MM/AA)</label>
-                  <input type="text" class="form-control" id="inputVenc" placeholder="">
+                  <input type="number" class="form-control" id="inputVenc" placeholder="" required>
                 </div>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="radios" id="radios2" value="radios2" checked>
+                <input class="form-check-input" type="radio" name="radios" id="radios2" value="radios2">
                 <label class="form-check-label">
                   Transferencia bancaria
                 </label>
               </div>
               <div class="col-10">
                 <label for="transferencia" class="visually-hidden">Transferencia</label>
-                <input type="text" class="form-control" id="transferencia" placeholder="Ingresar número de cuenta">
+                <input type="number" class="form-control" id="transferencia" placeholder="Ingresar número de cuenta" required disabled>
               </div>
             </div>
             <div class="modal-footer">
@@ -197,9 +199,14 @@
                 <button class="btn btn-primary" type="button" data-bs-dismiss="modal">Cerrar</button>
               </div>
             </div>
+            </div>
           </div>
         </div>
       </div>
+    </form>
+    <div class="alert alert-success d-flex justify-content-between" id="exito" role="alert" style="visibility: hidden">
+      <h5>¡Has comprado con éxito!</h5>
+      <button class="btn" data-bs-dismiss="alert"><span>&times;</span></button>
     </div>
   </main>
   <footer class="text-muted">
