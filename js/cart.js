@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 });
 
-
 function getHTML(cart) {
     return `<tr>
     <th scope="row"><img class="img-fluid" width="60" height="60"src="${cart.image}" alt=""></th>
@@ -31,7 +30,6 @@ const premium = document.getElementById('premium');
 const express = document.getElementById('express');
 const standard = document.getElementById('standard');
 let porcentaje = "5"
-
 
 function subTotal(precio) {
   const cantidadCart = document.getElementById('cantidad').value
@@ -88,7 +86,6 @@ standard.addEventListener ('click', function() {
   }
 })
 
-
 const radioTarjCred = document.getElementById('radios1');
 const radioTransf = document.getElementById('radios2');
 const tarjeta = document.getElementById('inputTarjeta');
@@ -103,6 +100,7 @@ radioTarjCred.addEventListener ('click', function (){
     tarjeta.disabled = false
     codigo.disabled = false 
     venc.disabled = false 
+    mensajeError.innerHTML = ""
     seleccionado.innerHTML = `Tarjeta de crédito &nbsp;&nbsp;`
   }
 })
@@ -113,13 +111,10 @@ radioTransf.addEventListener ('click', function (){
     venc.disabled = true 
   if (radioTransf.checked = true) {
     transf.disabled = false 
+    mensajeError.innerHTML = ""
     seleccionado.innerHTML = `Transferencia bancaria &nbsp;&nbsp;`
   }
 })
-
-const calle = document.getElementById('calle');
-const numero = document.getElementById('numero');
-const esquina= document.getElementById('esquina');
 
 var forms = document.querySelectorAll('.needs-validation')
 
@@ -132,10 +127,10 @@ Array.prototype.slice.call(forms)
         event.preventDefault()
         event.stopPropagation()
     } else {
-        document.getElementById('exito').style.visibility = "visible";
+        
         event.preventDefault()
         event.stopPropagation()
-        mensajeError.innerHTML = ""
+        document.getElementById('exito').style.visibility = "visible"
       }
     form.classList.add('was-validated')
     }, false)
