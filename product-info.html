@@ -13,67 +13,85 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+  <main>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav w-100 justify-content-between">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="categories.html">Categorías</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sell.html">Vender</a>
+            </li>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="usuario" data-bs-toggle="dropdown"
+                aria-expanded="false">
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#" id="carrito">Mi carrito</a></li>
+                <li><a class="dropdown-item" href="#" id="perfil">Mi perfil</a></li>
+                <li><a class="dropdown-item" href="#" id="cerrar">Cerrar sesión</a></li>
+              </ul>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br>
     <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link active" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="usuario" data-bs-toggle="dropdown"
-              aria-expanded="false">
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#" id="carrito">Mi carrito</a></li>
-              <li><a class="dropdown-item" href="#" id="perfil">Mi perfil</a></li>
-              <li><a class="dropdown-item" href="#" id="cerrar">Cerrar sesión</a></li>
-            </ul>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-primary" type="button">Comprar</button>
+      </div>
+      <br>
+      <div class="row g-3" id="product-info"></div>
+    </div>
+    <div class="container">
+      <h4>Comentarios</h4>
+      <div class="row g-3" id="product-comentario"></div>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-6">
+          <h4>Comentar</h4>
+          <p>Tu opinión:</p>
+          <textarea name="texto" id="" class="col-12"></textarea>
+          <p>Puntuación:</p>
+          <select class="col-2">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <br>
+          <br>
+          <br>
+          <div class="row col-2 d-flex mg-1">
+            <input class="btn btn-primary" type="submit" value="Enviar">
           </div>
-        </ul>
+        </div>
+      </div>
+    </div>  
+    <br>
+    <br>
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-6">
+          <h4>Productos relacionados</h4>
+          <div class="row" id="product-related"></div>
+        </div> 
       </div>
     </div>
-  </nav>
-  <div class="row" id="product-info"></div>
-  <h4>Comentarios</h4>
-  <div class="row col-8" id="product-comentario"></div>
-  </div>
-  <br>
-  <br>
-  <div class="row col-8" id="product-nuevocomentario"></div>
-  <h4>Comentar</h4>
-  <p>Tu opinión:</p>
-  <form>
-    <textarea name="texto" id="" class="row col-6 d-flex">
-      </textarea>
-  </form>
-  <p>Puntuación:</p>
-  <form target="_blank"></form>
-  <select class="row col-2 d-flex">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
-  </form><br><br>
-  <div class="row col-1 d-flex">
-    <input class="btn btn-primary" type="submit" value="Enviar">
-  </div>
-  <br>
-  <br>
-  <h4>Productos relacionados</h4>
-  <div class="row" id="product-related"></div>
   </main>
   <footer class="text-muted">
     <div class="container">

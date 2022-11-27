@@ -60,9 +60,62 @@
   </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+      <form class="needs-validation" novalidate>
+        <h5>Perfil</h5>
+        <div>
+          <img src="img/img_perfil.png" style= "width: 80px; height: 80px;" class= "rounded float-end" alt="...">
+        </div>
+        <hr>
+        <br>
+        <div class="row g-3">
+          <div class="col-6">
+            <label for="inputEmail" class="form-label">Primer nombre*</label>
+            <input type="text" class="form-control" id="primerNombre" required>
+          </div>
+          <div class="col-6">
+            <label for="inputPassword" class="form-label">Segundo nombre</label>
+            <input type="text" class="form-control" id="segundoNombre" required>
+          </div>
+        </div>
+        <br>
+        <div class="row g-3">
+          <div class="col-6">
+            <label for="inputEmail" class="form-label">Primer apellido*</label>
+            <input type="text" class="form-control" id="primerApellido" required>
+          </div>
+          <div class="col-6">
+            <label for="inputPassword" class="form-label">Segundo apellido</label>
+            <input type="text" class="form-control" id="segundoApellido" required>
+          </div>
+        </div>
+        <br>
+        <div class="row g-3">
+          <div class="col-6">
+            <label for="inputEmail" class="form-label">Email*</label>
+            <input type="email" class="form-control" id="email" required>
+          </div>
+          <div class="col-6">
+            <label for="inputPassword" class="form-label">Teléfono de contacto*</label>
+            <input type="number" class="form-control" id="telContacto" required>
+          </div>
+          <div class="col-6">
+            <label for="formFile" class="form-label">Imagen de perfil</label>
+            <input class="form-control" type="file" id="perfil">
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <hr>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary" id="guardar">Guardar cambios</button>
+        </div>
+      </form>
+    </div>
+    <div class="alert alert-success d-flex justify-content-between" id="exito" role="alert" style="visibility: hidden">
+      <h5>¡Datos guardados correctamente!</h5>
+      <button class="btn" data-bs-dismiss="alert"><span>&times;</span></button>
     </div>
   </main>
   <footer class="text-muted">
